@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class DemoData {
    @ExcelProperty("月份报表")
     private String statement;

@@ -10,13 +10,13 @@ import java.util.List;
 public class EasyExcelTest {
     String PATH="D:\\java项目\\POI\\";
     private List<DemoData> data() {
-        List<DemoData> list = new ArrayList<DemoData>();
-        for (int i = 0; i < 10; i++) {
-            DemoData data = new DemoData();
-            data.setStatement("月份：" + i);
-            data.setDate(new Date());
-            data.setMoney(0.56);
-            list.add(data);
+        List<DemoData> list =new ArrayList<>();
+        for (int i = 1; i <10 ; i++) {
+            DemoData demoData=new DemoData();
+            demoData.setStatement("月份:"+i);
+            demoData.setDate(new Date());
+            demoData.setMoney( i/1.0);
+            list.add(demoData);
         }
         return list;
     }
@@ -24,5 +24,10 @@ public class EasyExcelTest {
     public void testWrite(){
     String fileName=PATH+"年度报表.xls";
         EasyExcel.write(fileName,DemoData.class).sheet("年度报表").doWrite(data());
+    }
+    @Test
+    public void testRead(){
+        String fileName=PATH+"年度报表.xls";
+        EasyExcel.read(fileName,DemoData.class,new DemoDataListener()).sheet().doRead();
     }
 }
