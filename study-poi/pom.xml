@@ -35,7 +35,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
 
 
         </dependency>
@@ -44,6 +43,16 @@
             <artifactId>joda-time</artifactId>
             <version>2.10.10</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+        </dependency>
     </dependencies>
 </project>
