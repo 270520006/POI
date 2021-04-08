@@ -1,5 +1,6 @@
 package com.zsp;
 
+import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -10,13 +11,19 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.zsp.entity.User;
+import com.zsp.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 class EasyexcelandbootApplicationTests {
+	@Autowired
+	UserMapper userMapper;
 
 	@Test
 	void contextLoads() {
@@ -91,6 +98,21 @@ class EasyexcelandbootApplicationTests {
 		autoGenerator.setStrategy(strategy);
 		//        执行代码生成器
 		autoGenerator.execute();
+	}
+	@Test
+
+	public void testMapper(){
+		List<User> list =new ArrayList<>();
+		List<User> listAll = userMapper.selectList(null);
+		for (int i = 0; i < listAll.size(); i++) {
+			User user = listAll.get(i);
+			list.add(user);
+		}
+
+		String fileName= "D:\\java项目\\POI\\学生信息表.xls";
+		EasyExcel.write(fileName, User.class).sheet("学生信息表").doWrite(list);
+
+		System.out.println(list);
 	}
 
 

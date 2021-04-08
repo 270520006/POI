@@ -4,7 +4,9 @@ package com.zsp.controller;
 import com.zsp.entity.User;
 import com.zsp.mapper.UserMapper;
 import com.zsp.service.UserService;
+import com.zsp.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -24,10 +26,21 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
+
     @RequestMapping("/list")
-    public List getList(){
+    public List getList() {
         List<User> list = userService.list();
         return list;
+    }
+
+    @GetMapping("/getExcel")
+    public String getExcel() {
+        try {
+            return userService.getExcel();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "生成excel出现错误";
     }
 
 }
