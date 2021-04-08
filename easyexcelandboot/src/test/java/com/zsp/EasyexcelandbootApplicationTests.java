@@ -1,5 +1,6 @@
 package com.zsp;
 
+import cn.hutool.core.util.IdUtil;
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -19,6 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @SpringBootTest
 class EasyexcelandbootApplicationTests {
@@ -113,6 +115,10 @@ class EasyexcelandbootApplicationTests {
 		EasyExcel.write(fileName, User.class).sheet("学生信息表").doWrite(list);
 
 		System.out.println(list);
+	}
+	@Test
+	public void testUU(){
+		System.out.println(IdUtil.randomUUID());
 	}
 
 

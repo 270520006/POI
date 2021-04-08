@@ -42,6 +42,16 @@ public class UserController {
         }
         return "生成excel出现错误";
     }
+    @GetMapping("/getMysql")
+    public String getMysql() {
+        String fileName="D:\\java项目\\POI\\学生信息表03.xls";
+        try {
+            return userService.getMysql(fileName,userService);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "生成excel出现错误";
+    }
 
 }
 

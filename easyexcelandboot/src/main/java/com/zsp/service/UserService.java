@@ -2,6 +2,7 @@ package com.zsp.service;
 
 import com.zsp.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zsp.mapper.UserMapper;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserService extends IService<User> {
     public String getExcel() throws Exception;
+    public String getMysql(String fileName,UserService userService);
 }
