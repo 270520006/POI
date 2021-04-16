@@ -1,6 +1,6 @@
 package com.zsp;
 
-import cn.hutool.core.util.IdUtil;
+
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -116,10 +116,7 @@ class EasyexcelandbootApplicationTests {
 
 		System.out.println(list);
 	}
-	@Test
-	public void testUU(){
-		System.out.println(IdUtil.randomUUID());
-	}
+
 
 
 }
